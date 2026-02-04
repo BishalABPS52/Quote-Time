@@ -1,0 +1,306 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Crimson+Text:wght@300;400;600&family=Cormorant+Garamond:wght@300;400;500;600&display=swap');
+
+@layer base {
+  body {
+    @apply antialiased;
+  }
+}
+
+/* Quote-Time Logo Styling */
+.quote-time-logo {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 7.5rem;
+  color: #F0F0DB;
+  letter-spacing: 2px;
+  font-weight: 400;
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+}
+
+.q-letter {
+  position: relative;
+  display: inline-block;
+}
+
+.golden-accent {
+  position: absolute;
+  bottom: 15px;
+  left: 8px;
+  width: 70px;
+  height: 6px;
+  background: linear-gradient(90deg, #C9A961 0%, #E8D4A0 50%, #C9A961 100%);
+  border-radius: 3px;
+  transform: rotate(-2deg);
+}
+
+.remaining-text {
+  display: inline;
+}
+
+/* Responsive logo sizing */
+@media (max-width: 768px) {
+  .quote-time-logo {
+    font-size: 3.75rem;
+  }
+  
+  .golden-accent {
+    bottom: 8px;
+    left: 4px;
+    width: 35px;
+    height: 3px;
+  }
+}
+
+@media (max-width: 480px) {
+  .quote-time-logo {
+    font-size: 3rem;
+  }
+  
+  .golden-accent {
+    bottom: 6px;
+    left: 3px;
+    width: 28px;
+    height: 2.5px;
+  }
+}
+
+@layer utilities {
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+  .animation-delay-800 {
+    animation-delay: 800ms;
+  }
+  .animation-delay-1000 {
+    animation-delay: 1000ms;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-20px) translateX(10px);
+  }
+  50% {
+    transform: translateY(-10px) translateX(-10px);
+  }
+  75% {
+    transform: translateY(-30px) translateX(5px);
+  }
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes fallFlower {
+  0% {
+    transform: translateY(-100px) rotate(0deg) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0) rotate(45deg) scale(1);
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(100vh) rotate(180deg) scale(0.8);
+    opacity: 0;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.animate-fadeInDown {
+  animation: fadeInDown 1s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 20s ease-in-out infinite;
+}
+
+/* Falling stars - dark shades */
+.star {
+  position: absolute;
+  top: -100px;
+  width: 3px;
+  height: 3px;
+  background: #3d4463;
+  border-radius: 50%;
+  box-shadow: 
+    0 0 6px #3d4463,
+    0 0 12px #3d4463;
+  animation: fall linear infinite;
+}
+
+.star::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 2px;
+  height: 2px;
+  background: #4a5070;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #4a5070;
+}
+
+/* Falling flowers - light shades */
+.flower {
+  position: absolute;
+  top: -100px;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, #E1D9BC 0%, #ACBAC4 50%, transparent 70%);
+  border-radius: 50%;
+  animation: fallFlower linear infinite;
+  opacity: 0.6;
+}
+
+.flower::before,
+.flower::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, #F0F0DB 0%, #E1D9BC 60%, transparent 80%);
+  border-radius: 50%;
+}
+
+.flower::before {
+  top: -3px;
+  left: 2px;
+}
+
+.flower::after {
+  top: 2px;
+  left: -3px;
+}
+
+/* Tree-like structures with breeze animation */
+.tree-branch {
+  position: absolute;
+  width: 80px;
+  background: linear-gradient(to top, 
+    #ACBAC4 0%, 
+    #6b7a8a 40%, 
+    transparent 100%);
+  filter: blur(15px);
+  opacity: 0.3;
+  animation: sway ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+@keyframes sway {
+  0%, 100% {
+    transform: rotate(0deg) scaleY(1);
+    opacity: 0.3;
+  }
+  25% {
+    transform: rotate(3deg) scaleY(1.05);
+    opacity: 0.4;
+  }
+  50% {
+    transform: rotate(0deg) scaleY(1);
+    opacity: 0.3;
+  }
+  75% {
+    transform: rotate(-3deg) scaleY(1.05);
+    opacity: 0.35;
+  }
+}
+
+/* Cursor glow effect */
+#cursor-glow {
+  z-index: 9999;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Custom cursor dot */
+body::before {
+  content: '';
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: #F0F0DB;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  mix-blend-mode: difference;
+  transition: transform 0.15s ease;
+}
+
