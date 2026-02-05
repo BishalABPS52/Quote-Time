@@ -3,6 +3,7 @@ import Head from 'next/head'
 import QuoteCard from '../components/QuoteCard'
 import ActionButtons from '../components/ActionButtons'
 import ErrorMessage from '../components/ErrorMessage'
+import Footer from '../components/Footer'
 import { quoteApi } from '../services/api'
 
 export default function Home() {
@@ -144,6 +145,9 @@ export default function Home() {
             loading={loading}
           />
         </div>
+
+        {/* Footer */}
+        <Footer />
       </main>
     </>
   )

@@ -4,6 +4,13 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Crimson+Text:wght@300;400;600&family=Cormorant+Garamond:wght@300;400;500;600&display=swap');
 
+@font-face {
+  font-family: 'Bulgatti';
+  src: url('/Bulgatti.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 @layer base {
   body {
     @apply antialiased;
@@ -67,6 +74,12 @@
     width: 28px;
     height: 2.5px;
   }
+}
+
+/* Bulgatti font for footer */
+.bulgatti-font {
+  font-family: 'Bulgatti', sans-serif;
+  font-size: 1.1rem;
 }
 
 @layer utilities {
