@@ -31,7 +31,14 @@ app = FastAPI(
 # CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://localhost:3001"],
+    allow_origins=[
+        "http://localhost:3000",
+        "http://localhost:3001", 
+        "https://qotd-xi.vercel.app",
+        "https://quote-time.vercel.app",
+        "https://quote-time.vercel.app/",
+        "https://qotd-git-main-bishalabps52s-projects.vercel.app/"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
