@@ -1,21 +1,4 @@
--- ================================================================
--- Quote of the Day - PostgreSQL Database Schema
--- ================================================================
--- Description: Creates the quotes table with proper structure
--- Database: qotd_db
--- ================================================================
 
--- Connect to the database first
--- Command: \c qotd_db
-
--- ================================================================
--- Drop table if exists (for fresh start - CAUTION: deletes data!)
--- ================================================================
--- DROP TABLE IF EXISTS quotes CASCADE;
-
--- ================================================================
--- Create quotes table
--- ================================================================
 CREATE TABLE IF NOT EXISTS quotes (
     -- Primary key - auto-incrementing quote ID
     quote_id SERIAL PRIMARY KEY,
@@ -40,10 +23,6 @@ CREATE TABLE IF NOT EXISTS quotes (
     CONSTRAINT check_content_not_empty CHECK (LENGTH(TRIM(content)) > 0),
     CONSTRAINT check_author_not_empty CHECK (LENGTH(TRIM(author)) > 0)
 );
-
--- ================================================================
--- Create indexes for better query performance
--- ================================================================
 
 -- Index for filtering by shown status (most frequently used query)
 CREATE INDEX IF NOT EXISTS idx_quotes_shown 
