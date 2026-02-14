@@ -14,17 +14,17 @@ load_dotenv()
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Startup
-    print("🚀 Initializing database...")
+    print(" Initializing database...")
     await init_db()
-    print("✅ Database initialized successfully")
+    print("Database initialized successfully")
     yield
     # Shutdown
-    print("❌ Shutting down...")
+    print("Shutting down...")
 
 app = FastAPI(
-    title="Quote of the Day API",
-    description="API for fetching and managing daily quotes",
-    version="1.0.0",
+    title="Quote-Time",
+    description="API for fetching and managing quotes that inspire you.",
+    version="1.1.2",
     lifespan=lifespan
 )
 
@@ -46,15 +46,10 @@ app.add_middleware(
 
 @app.get("/")
 async def root():
-    return {"message": "Quote of the Day API", "status": "running", "database": "PostgreSQL"}
+    return {"message": "Quote-Time API", "status": "running", "database": "PostgreSQL"}
 
 @app.get("/api/quote-of-the-day", response_model=QuoteResponse)
 async def get_quote_of_the_day(db: AsyncSession = Depends(get_db)):
-    """
-    Get a random quote using repeat_counter system.
-    Shows quotes with lowest repeat_counter first.
-    When all quotes reach same count, increments all counters.
-    """
     # Find the minimum repeat_counter value
     min_counter_result = await db.execute(
         select(func.min(Quote.repeat_counter))
@@ -111,9 +106,6 @@ async def get_stats(db: AsyncSession = Depends(get_db)):
 
 @app.post("/api/reset-quotes")
 async def reset_quotes(db: AsyncSession = Depends(get_db)):
-    """
-    Reset all quotes to not shown
-    """
     result = await db.execute(
         update(Quote).values(shown=False, shown_at=None)
     )
