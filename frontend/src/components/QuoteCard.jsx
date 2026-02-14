@@ -15,7 +15,6 @@ export default function QuoteCard({ quote, loading }) {
 
   return (
     <div className="relative px-3 sm:px-4 md:px-6 lg:px-10 py-8 sm:py-10 md:py-12 lg:py-16">
-      {/* Animated decorative elements - hidden on mobile */}
       <div className="hidden md:block absolute top-6 left-6 w-16 lg:w-20 h-16 lg:h-20 border-l-2 border-t-2 border-[#ACBAC4] opacity-40 animate-fadeIn"></div>
       <div className="hidden md:block absolute bottom-6 right-6 w-16 lg:w-20 h-16 lg:h-20 border-r-2 border-b-2 border-[#ACBAC4] opacity-40 animate-fadeIn animation-delay-300"></div>
       
@@ -39,7 +38,6 @@ export default function QuoteCard({ quote, loading }) {
           &rdquo;
         </div>
         
-        {/* Decorative divider */}
         <div className="flex items-center justify-center mb-6 md:mb-8 animate-fadeIn animation-delay-600 -mt-[50px]">
           <div className="h-px w-12 md:w-16 bg-gradient-to-r from-transparent via-[#ACBAC4] to-transparent"></div>
           <div className="mx-3 md:mx-4 w-1.5 md:w-2 h-1.5 md:h-2 bg-[#ACBAC4] rounded-full"></div>
@@ -55,14 +53,12 @@ export default function QuoteCard({ quote, loading }) {
           {/* Category and Tags */}
           {quote.tags && quote.tags.length > 0 && (
             <div className="mt-3 md:mt-4 px-4">
-              {/* Main Category (first tag) */}
               <div className="mb-2">
                 <span className="inline-block bg-gradient-to-r from-[#ACBAC4]/20 to-[#E1D9BC]/20 text-[#F0F0DB] px-4 md:px-6 py-1.5 md:py-2 text-xs md:text-sm font-sans tracking-widest uppercase border border-[#ACBAC4]/40 rounded-sm">
                   {quote.tags[0]}
                 </span>
               </div>
               
-              {/* Other tags */}
               {quote.tags.length > 1 && (
                 <div className="flex flex-wrap gap-2 justify-center">
                   {quote.tags.slice(1, 3).map((tag, index) => (
