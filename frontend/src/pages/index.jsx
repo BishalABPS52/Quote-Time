@@ -44,14 +44,6 @@ export default function Home() {
     fetchQuote()
     fetchStats()
     
-    // Cursor tracking - larger circle
-    const handleMouseMove = (e) => {
-      const cursorGlow = document.getElementById('cursor-glow')
-      if (cursorGlow) {
-        cursorGlow.style.left = `${e.clientX - 192}px`
-        cursorGlow.style.top = `${e.clientY - 192}px`
-      }
-    }
     
     const mainContainer = document.getElementById('main-container')
     if (mainContainer) {
@@ -76,14 +68,13 @@ export default function Home() {
       </Head>
 
       <main className="min-h-screen bg-[#30364F] relative overflow-hidden flex items-center justify-center p-4" id="main-container">
-        {/* Cursor follower - large circle tracking mouse */}
         <div id="cursor-glow" className="pointer-events-none fixed w-96 h-96 rounded-full bg-gradient-radial from-[#E1D9BC]/30 via-[#ACBAC4]/15 to-transparent blur-3xl transition-all duration-200 ease-out" style={{left: '-192px', top: '-192px'}}></div>
         
-        {/* Animated background with falling stars and flowers */}
+        {/* Animated background  */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[#30364F] via-[#2a2f47] to-[#3d4463]"></div>
           
-          {/* Tree-like structures with light colors and breeze animation */}
+          {/*  light colors and breeze animation */}
           <div className="tree-branch" style={{left: '5%', bottom: '0', height: '70%', animationDelay: '0s'}}></div>
           <div className="tree-branch" style={{left: '15%', bottom: '0', height: '85%', animationDelay: '1.5s'}}></div>
           <div className="tree-branch" style={{left: '25%', bottom: '0', height: '60%', animationDelay: '3s'}}></div>
@@ -91,7 +82,7 @@ export default function Home() {
           <div className="tree-branch" style={{right: '8%', bottom: '0', height: '90%', animationDelay: '0.5s'}}></div>
           <div className="tree-branch" style={{left: '40%', bottom: '0', height: '65%', animationDelay: '2.5s'}}></div>
           
-          {/* Falling stars (dark shades) */}
+          {/* Falling animations */}
           <div className="star" style={{left: '10%', animationDelay: '0s', animationDuration: '15s'}}></div>
           <div className="star" style={{left: '20%', animationDelay: '2s', animationDuration: '18s'}}></div>
           <div className="star" style={{left: '30%', animationDelay: '4s', animationDuration: '16s'}}></div>
@@ -104,7 +95,7 @@ export default function Home() {
           <div className="star" style={{left: '15%', animationDelay: '6s', animationDuration: '22s'}}></div>
           <div className="star" style={{left: '85%', animationDelay: '3.5s', animationDuration: '19s'}}></div>
           
-          {/* Falling flowers (light shades) */}
+          {/* Falling animations2 */}
           <div className="flower" style={{left: '5%', animationDelay: '0s', animationDuration: '20s'}}></div>
           <div className="flower" style={{left: '25%', animationDelay: '3s', animationDuration: '22s'}}></div>
           <div className="flower" style={{left: '45%', animationDelay: '6s', animationDuration: '24s'}}></div>
@@ -116,7 +107,7 @@ export default function Home() {
         </div>
         
         <div className="max-w-6xl w-full relative z-10">
-          {/* Logo - CSS styled Quote-Time */}
+          {/* Logo  Quote-Time */}
           <div className="text-center mb-8 animate-fadeInDown">
             <div className="quote-time-logo">
               <span className="q-letter">
