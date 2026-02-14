@@ -43,7 +43,15 @@ export default function Home() {
   useEffect(() => {
     fetchQuote()
     fetchStats()
-    
+
+     // Cursor tracking - larger circle
+    const handleMouseMove = (e) => {
+      const cursorGlow = document.getElementById('cursor-glow')
+      if (cursorGlow) {
+        cursorGlow.style.left = `${e.clientX - 192}px`
+        cursorGlow.style.top = `${e.clientY - 192}px`
+      }
+    }
     
     const mainContainer = document.getElementById('main-container')
     if (mainContainer) {
