@@ -35,6 +35,7 @@ app.add_middleware(
         "http://localhost:3000",
         "http://localhost:3001", 
         "https://qotd-xi.vercel.app",
+        "https://quotetime.bishalshrestha52.com.np",
         "https://quote-time.vercel.app",
         "https://quote-time.vercel.app/",
         "https://qotd-git-main-bishalabps52s-projects.vercel.app/"
